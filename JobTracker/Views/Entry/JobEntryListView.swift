@@ -17,35 +17,7 @@ struct JobEntryListView: View {
         List{
             
             Section("Progress"){
-                HStack{
-                    VStack{
-                        Text("\(job.entries.count)")
-                            .bold()
-                        Text("entries")
-                            .font(.caption)
-                            .foregroundColor(.gray)
-                    }
-                    
-                    VStack{
-                        Text("\(job.entries.sum(ofProperty: "hours") ?? 0)")
-                            .bold()
-                        Text("hours")
-                            .font(.caption)
-                            .foregroundColor(.gray)
-                        
-                    }
-                    
-                    VStack{
-                        Text("$ \(job.entries.sum(ofProperty: "earns") ?? 0)")
-                            .bold()
-                            .foregroundColor(.green)
-                        
-                        Text("earned")
-                            .font(.caption)
-                            .foregroundColor(.gray)
-                        
-                    }
-                }
+                JobProgressView(job: job)
             }
             
             Section("Entries"){
@@ -57,9 +29,11 @@ struct JobEntryListView: View {
                                     .bold()
                                     
                                 
-                    
+                               
+                                
                                 HStack{
-                                    Text(entry.startDate?.formatted(date: .abbreviated , time: .omitted) ?? "-")
+                                   
+                                    Text(entry.startDate?.formatted(date: .abbreviated, time: .omitted) ?? "-")
                                         .font(.caption)
                                         .foregroundColor(.gray)
                                     
@@ -112,11 +86,20 @@ struct JobEntryListView: View {
             
         }
     }
+    
+    private func formatedDate(date: Date) -> any View{
+            
+        Text(date.formatted(date: .abbreviated , time: .omitted))
+            .font(.caption)
+            .foregroundColor(.gray)
+    }
 }
 
 struct JobEntryListView_Previews: PreviewProvider {
     static var previews: some View {
-        JobEntryListView(job: RealmHelper.jobs.first!)
-            .environment(\.realm, RealmHelper.preview)
+        NavigationView{
+            JobEntryListView(job: RealmHelper.jobs.first!)
+                .environment(\.realm, RealmHelper.preview)
+        }
     }
 }

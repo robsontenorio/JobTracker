@@ -44,7 +44,6 @@ struct JobDetailView: View {
 }
 
 struct JobDetailView_Previews: PreviewProvider {
-
     static var previews: some View {
         NavigationView{
             JobDetailView(job: RealmHelper.preview.objects(Job.self).first!)

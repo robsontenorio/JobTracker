@@ -12,11 +12,12 @@ struct JobRowView: View {
     @ObservedRealmObject var job: Job
     
     var body: some View {
-        HStack{
+        VStack(alignment: .leading){
             Text(job.name)
-            Spacer()
-            Text("\(job.entries.count)")
-                .font(.caption)
+                .bold()
+                
+            
+            JobProgressView(job: job)
         }
         
     }

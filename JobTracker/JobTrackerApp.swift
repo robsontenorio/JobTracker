@@ -12,10 +12,19 @@ let app: RealmSwift.App? = nil
     
 @main
 struct JobTrackerApp: SwiftUI.App {
+    @ObservedResults(UserAccount.self) var users
+    
     var body: some Scene {
         WindowGroup {
             NavigationView{
-                ContentView()
+                if let user = users.first {
+                    JobsListView(user: user)
+                } else {
+                    ProgressView()
+                        .onAppear {
+                            $users.append(UserAccount())
+                        }
+                }
             }
         }
     }

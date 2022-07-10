@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF43666B287B111800242B7F /* JobProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43666A287B111800242B7F /* JobProgressView.swift */; };
 		AF789083287B0395002D3A1F /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF789082287B0395002D3A1F /* RealmHelper.swift */; };
 		AFC710F2287A3151000B67E9 /* AddJobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC710F1287A3151000B67E9 /* AddJobView.swift */; };
 		AFC710F6287A4BA9000B67E9 /* JobEntryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC710F5287A4BA9000B67E9 /* JobEntryListView.swift */; };
 		AFC710F8287A4D41000B67E9 /* AddJobEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC710F7287A4D41000B67E9 /* AddJobEntryView.swift */; };
 		AFC710FA287A55F8000B67E9 /* JobEntryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC710F9287A55F8000B67E9 /* JobEntryDetailView.swift */; };
 		AFEF5E372879D61A007F152F /* JobTrackerApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEF5E362879D61A007F152F /* JobTrackerApp.swift */; };
-		AFEF5E392879D61A007F152F /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEF5E382879D61A007F152F /* ContentView.swift */; };
 		AFEF5E3B2879D61B007F152F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFEF5E3A2879D61B007F152F /* Assets.xcassets */; };
 		AFEF5E3E2879D61B007F152F /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AFEF5E3D2879D61B007F152F /* Preview Assets.xcassets */; };
 		AFEF5E462879D693007F152F /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = AFEF5E452879D693007F152F /* Realm */; };
@@ -27,6 +27,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AF43666A287B111800242B7F /* JobProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobProgressView.swift; sourceTree = "<group>"; };
 		AF789082287B0395002D3A1F /* RealmHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmHelper.swift; sourceTree = "<group>"; };
 		AFC710F1287A3151000B67E9 /* AddJobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddJobView.swift; sourceTree = "<group>"; };
 		AFC710F5287A4BA9000B67E9 /* JobEntryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobEntryListView.swift; sourceTree = "<group>"; };
@@ -34,7 +35,6 @@
 		AFC710F9287A55F8000B67E9 /* JobEntryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobEntryDetailView.swift; sourceTree = "<group>"; };
 		AFEF5E332879D61A007F152F /* JobTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JobTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AFEF5E362879D61A007F152F /* JobTrackerApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobTrackerApp.swift; sourceTree = "<group>"; };
-		AFEF5E382879D61A007F152F /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AFEF5E3A2879D61B007F152F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AFEF5E3D2879D61B007F152F /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		AFEF5E4B2879D761007F152F /* JobsListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobsListView.swift; sourceTree = "<group>"; };
@@ -58,6 +58,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AF43666C287B133700242B7F /* Progress */ = {
+			isa = PBXGroup;
+			children = (
+				AF43666A287B111800242B7F /* JobProgressView.swift */,
+			);
+			path = Progress;
+			sourceTree = "<group>";
+		};
 		AF789081287B038B002D3A1F /* Realm */ = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +87,7 @@
 		AFC710F4287A4B98000B67E9 /* Job */ = {
 			isa = PBXGroup;
 			children = (
+				AF43666C287B133700242B7F /* Progress */,
 				AFEF5E4B2879D761007F152F /* JobsListView.swift */,
 				AFEF5E4D2879D772007F152F /* JobRowView.swift */,
 				AFEF5E4F2879D789007F152F /* JobDetailView.swift */,
@@ -110,7 +119,6 @@
 				AFEF5E4A2879D749007F152F /* Models */,
 				AFEF5E492879D743007F152F /* Views */,
 				AFEF5E362879D61A007F152F /* JobTrackerApp.swift */,
-				AFEF5E382879D61A007F152F /* ContentView.swift */,
 				AFEF5E3A2879D61B007F152F /* Assets.xcassets */,
 				AFEF5E3C2879D61B007F152F /* Preview Content */,
 			);
@@ -222,13 +230,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFF481DE287A2A1D008BA106 /* UserAccount.swift in Sources */,
-				AFEF5E392879D61A007F152F /* ContentView.swift in Sources */,
 				AFC710FA287A55F8000B67E9 /* JobEntryDetailView.swift in Sources */,
 				AFEF5E542879DF08007F152F /* JobEntry.swift in Sources */,
 				AFC710F6287A4BA9000B67E9 /* JobEntryListView.swift in Sources */,
 				AFEF5E522879DF00007F152F /* Job.swift in Sources */,
 				AFEF5E502879D789007F152F /* JobDetailView.swift in Sources */,
 				AFEF5E372879D61A007F152F /* JobTrackerApp.swift in Sources */,
+				AF43666B287B111800242B7F /* JobProgressView.swift in Sources */,
 				AFC710F2287A3151000B67E9 /* AddJobView.swift in Sources */,
 				AFC710F8287A4D41000B67E9 /* AddJobEntryView.swift in Sources */,
 				AFEF5E4E2879D772007F152F /* JobRowView.swift in Sources */,
@@ -370,6 +378,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -402,6 +411,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

@@ -18,4 +18,12 @@ final class Job: Object, ObjectKeyIdentifiable {
         self.init()
         self.name = name
     }
+    
+    var totalHours: Int{
+        self.entries.sum(ofProperty: "hours") ?? 0
+    }
+    
+    var totalEarns: Int{
+        self.entries.sum(ofProperty: "earns") ?? 0
+    }
 }
