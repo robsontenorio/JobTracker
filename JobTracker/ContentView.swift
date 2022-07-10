@@ -6,14 +6,21 @@
 //
 
 import SwiftUI
+import RealmSwift
+
 
 struct ContentView: View {
+    @ObservedResults(UserAccount.self) var users
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        
+        if let user = users.first {
+            JobsListView(user: user)
+        } else {
+            ProgressView()
+                .onAppear {
+                    $users.append(UserAccount())
+                }
         }
     }
 }
@@ -21,5 +28,9 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
+            .environment(\.realm, RealmHelper.preview)
     }
 }
+
+
+

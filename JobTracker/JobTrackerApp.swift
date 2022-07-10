@@ -6,12 +6,17 @@
 //
 
 import SwiftUI
+import RealmSwift
 
+let app: RealmSwift.App? = nil
+    
 @main
-struct JobTrackerApp: App {
+struct JobTrackerApp: SwiftUI.App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            NavigationView{
+                ContentView()
+            }
         }
     }
 }
