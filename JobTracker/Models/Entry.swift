@@ -8,15 +8,15 @@
 import Foundation
 import RealmSwift
 
-class JobEntry: Object, ObjectKeyIdentifiable {
+class Entry: Object, ObjectKeyIdentifiable {
     @Persisted(primaryKey: true) var _id: ObjectId
     @Persisted var startDate: Date?
     @Persisted var endDate: Date?
     @Persisted var hours: Int?
     @Persisted var earns: Int?
-    
+
     @Persisted(originProperty: "entries") var job: LinkingObjects<Job>
-    
+
     convenience init(_ hours: Int, startDate: Date? = nil, endDate: Date? = nil, earns: Int? = nil) {
         self.init()
         self.hours = hours
@@ -25,4 +25,3 @@ class JobEntry: Object, ObjectKeyIdentifiable {
         self.earns = earns
     }
 }
-

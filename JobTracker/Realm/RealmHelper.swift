@@ -8,12 +8,10 @@
 import Foundation
 import RealmSwift
 
-class RealmHelper{
-    
+class RealmHelper {
     static let userAccount = UserAccount()
     static let jobs = [Job("Job 1"), Job("Job 2"), Job("Job 3")]
-    static let job1Entries = [JobEntry(12,startDate: Date(), endDate: Date(), earns: 44), JobEntry(55)]
-    
+    static let job1Entries = [Entry(12, startDate: Date(), endDate: Date(), earns: 44), Entry(55)]
     
     static var preview: Realm {
         var realm: Realm
@@ -33,7 +31,7 @@ class RealmHelper{
                 
                 return realm
             }
-        } catch let error {
+        } catch {
             fatalError("Can't bootstrap item data: \(error.localizedDescription)")
         }
     }

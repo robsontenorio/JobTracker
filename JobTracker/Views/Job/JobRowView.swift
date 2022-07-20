@@ -5,26 +5,48 @@
 //  Created by Robson Tenório on 09/07/22.
 //
 
-import SwiftUI
 import RealmSwift
+import SwiftUI
 
 struct JobRowView: View {
     @ObservedRealmObject var job: Job
     
     var body: some View {
-        VStack(alignment: .leading){
-            Text(job.name)
-                .bold()
-                
-            
-            JobProgressView(job: job)
-        }
         
+            HStack {
+                VStack(alignment: .leading) {
+                    Text(job.name)
+                        .bold()
+                        .padding(.bottom, 5)
+                    
+                    HStack {
+                        Image(systemName: "calendar")
+                        Text("\(job.entries.count) days")
+                            .padding(.trailing)
+                        
+                        Image(systemName: "clock")
+                        Text("\(job.totalHours) hours")
+                    }
+                    .font(.caption)
+                    .foregroundColor(.gray)
+                }
+                
+                Spacer()
+                
+                Text("$\(job.totalEarns)")
+                    .foregroundColor(.green)
+            }        
     }
 }
 
 struct JobRowView_Previews: PreviewProvider {
     static var previews: some View {
-        JobRowView(job: RealmHelper.preview.objects(Job.self).first!)
+        VStack {
+            JobRowView(job: RealmHelper.preview.objects(Job.self).first!)
+                .padding()
+                .background(.white)
+        }
+        .padding(30)
+        .background(Color.gray.opacity(0.1))
     }
 }

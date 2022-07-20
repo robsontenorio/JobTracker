@@ -12,18 +12,18 @@ final class Job: Object, ObjectKeyIdentifiable {
     @Persisted(primaryKey: true) var _id: ObjectId
     @Persisted var name: String
     @Persisted(originProperty: "jobs") var job: LinkingObjects<UserAccount>
-    @Persisted var entries = RealmSwift.List<JobEntry>()
-    
-    convenience init(_ name: String){
+    @Persisted var entries = RealmSwift.List<Entry>()
+
+    convenience init(_ name: String) {
         self.init()
         self.name = name
     }
-    
-    var totalHours: Int{
+
+    var totalHours: Int {
         self.entries.sum(ofProperty: "hours") ?? 0
     }
-    
-    var totalEarns: Int{
+
+    var totalEarns: Int {
         self.entries.sum(ofProperty: "earns") ?? 0
     }
 }

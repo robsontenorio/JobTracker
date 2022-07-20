@@ -5,14 +5,14 @@
 //  Created by Robson Tenório on 09/07/22.
 //
 
-import SwiftUI
 import RealmSwift
+import SwiftUI
 
-struct JobEntryDetailView: View {
-    @ObservedRealmObject var entry: JobEntry
+struct EntryDetailView: View {
+    @ObservedRealmObject var entry: Entry
     
     var body: some View {
-        List{
+        List {
             // TODO: tudo editavel aqui
             
             Text("\(entry.hours ?? 0)")
@@ -21,10 +21,7 @@ struct JobEntryDetailView: View {
             
             Text(entry.startDate?.formatted(date: .long, time: .omitted) ?? "-")
             Text(entry.endDate?.formatted(date: .long, time: .omitted) ?? "-")
-            
         }
         .navigationTitle("Entry")
-        
     }
 }
-
