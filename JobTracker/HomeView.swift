@@ -22,6 +22,11 @@ struct HomeView: View {
                 .tabItem {
                     Label("Reports", systemImage: "chart.pie")
                 }
+            
+            Settings()
+                .tabItem {
+                    Label("Settings", systemImage: "gearshape")
+                }
         }
     }
 }

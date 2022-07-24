@@ -11,67 +11,54 @@ import SwiftUI
 struct EntryListView: View {
     @ObservedRealmObject var user: UserAccount
     @ObservedRealmObject var job: Job
-    
+
     @State private var addingEntry = false
     @State private var editingJob = false
-    
+
     var body: some View {
         List {
-            Section("Progress") {
+            Section("") {
                 JobProgressView(job: job)
-                    .listRowBackground(Color.clear)
+                    .listRowInsets(EdgeInsets())
             }
-            
-            Section("Entries") {
-                ForEach(job.entries) { entry in
-                    NavigationLink(destination: EntryDetailView(entry: entry)) {
-                        EntryRowView(entry: entry)
-                    }
+
+            Button(action: { addingEntry = true }) {
+                Label("Add entry", systemImage: "plus")
+            }
+            .sheet(isPresented: $addingEntry) {
+                NavigationView {
+                    EntryDetailView(job: job, entry: Entry())
                 }
-                .onDelete(perform: $job.entries.remove)
-                .onMove(perform: $job.entries.move)
+            }
+
+            ForEach(job.entriesGroupedByMonth, id: \.self) { entries in
+                Section(entries[0].date.monthName) {
+                    ForEach(entries) { entry in
+                        NavigationLink(destination: EntryDetailView(job: job, entry: entry)) {
+                            EntryRowView(entry: entry)
+                        }
+                    }
+                    .onDelete(perform: $job.entries.remove)
+                }
             }
         }
         .navigationTitle(job.name)
         .toolbar {
-            ToolbarTitleMenu {
-                Button {} label: {
-                    Label("Settings", systemImage: "gearshape")
-                }
-                
-                //                NavigationLink(destination: JobDetailView(job: job)){
-                //                    Text("Edit")
-                //                }
-            }
-            
-            ToolbarItem(placement: .navigationBarTrailing) {
-                HStack {
-                    //                    NavigationLink(destination: JobDetailView(job: job)){
-                    //                        Text("Edit")
-                    //                    }
-                    
+            ToolbarItem {
+                HStack(spacing: 20) {
                     Button(action: { editingJob = true }) {
-                        Text("Edit")
+                        Image(systemName: "gearshape")
                     }
                     .sheet(isPresented: $editingJob) {
                         NavigationView {
                             JobDetailView(user: user, job: job)
                         }
                     }
-                    
-                    Button(action: { addingEntry = true }) {
-                        Image(systemName: "plus")
-                    }
-                    .sheet(isPresented: $addingEntry) {
-                        NavigationView {
-                            AddEntryView(job: job)                         
-                        }
-                    }
                 }
             }
         }
     }
-    
+
     private func formatedDate(date: Date) -> any View {
         Text(date.formatted(date: .abbreviated, time: .omitted))
             .font(.caption)

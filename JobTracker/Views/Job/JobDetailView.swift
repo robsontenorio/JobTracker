@@ -15,10 +15,14 @@ struct JobDetailView: View {
     @ObservedRealmObject var job: Job
     
     @State private var name: String = ""
+    @State private var pricePerHour: Float = 0.0
     
-    private var isEditing: Bool {
-        job.name == "" ? false : true
-    }
+    let currencyEditingFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        return formatter
+    }()
+    
         
     var body: some View {
         Form {
@@ -43,10 +47,11 @@ struct JobDetailView: View {
 //                    }
 //                }
 //
-//                LabeledContent("Price/Hour") {
-//                    TextField("--", value: $pricePerHour, format: .number)
-//                        .multilineTextAlignment(.trailing)
-//                }
+                LabeledContent("Price/Hour") {
+                    TextField("--", value: $pricePerHour, formatter: currencyEditingFormatter)
+                        .multilineTextAlignment(.trailing)
+                        .keyboardType(.decimalPad)
+                }
             }
         }
         .toolbar {
@@ -59,11 +64,12 @@ struct JobDetailView: View {
         }
         .onAppear {
             name = job.name
+            pricePerHour = job.pricePerHour
         }
     }
     
     private func save() {
-        isEditing ? update() : create()
+        job.isFrozen ? update() : create()
         
         dismiss()
     }
@@ -73,12 +79,13 @@ struct JobDetailView: View {
         
         try! edit.realm!.write {
             edit.name = name
+            edit.pricePerHour = pricePerHour
         }
     }
     
     private func create() {
         try? user.thaw()?.realm?.write {
-            $user.jobs.append(Job(name))
+            $user.jobs.append(Job(name, pricePerHour: pricePerHour))
         }
     }
 }

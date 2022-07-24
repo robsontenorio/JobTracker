@@ -18,7 +18,6 @@ struct JobsListView: View {
                 ForEach(user.jobs) { job in
                     NavigationLink(destination: EntryListView(user: user, job: job)) {
                         JobRowView(job: job)
-                            .padding(.vertical)
                     }
                 }
                 .onDelete(perform: $user.jobs.remove)

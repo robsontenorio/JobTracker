@@ -13,27 +13,21 @@ struct EntryRowView: View {
     
     var body: some View {
         HStack {
-            VStack(alignment: .leading) {
-                Text("\(entry.hours ?? 0) hours")
-                    .bold()
+            Image(systemName: "calendar")
+            Text(entry.date.shortDate)
+                .padding(.trailing)
                 
-                HStack {
-                    Text(entry.startDate?.formatted(date: .abbreviated, time: .omitted) ?? "-")
-                        .font(.caption)
-                        .foregroundColor(.gray)
-                    
-                    Text(" - ")
-                    
-                    Text(entry.endDate?.formatted(date: .abbreviated, time: .omitted) ?? "-")
-                        .font(.caption)
-                        .foregroundColor(.gray)
-                }
-            }
+            Image(systemName: "clock")
+                .font(.caption)
+                .foregroundColor(.gray)
+                
+            Text("\(entry.hours) hours")
+                .font(.caption)
+                .foregroundColor(.gray)
             
             Spacer()
-            
-            Text("$ \(entry.earns ?? 0)")
-                .bold()
+                        
+            Text(entry.earns.money())
                 .foregroundColor(.green)
         }
     }

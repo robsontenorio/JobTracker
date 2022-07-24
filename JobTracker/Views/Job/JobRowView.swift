@@ -12,30 +12,28 @@ struct JobRowView: View {
     @ObservedRealmObject var job: Job
     
     var body: some View {
-        
-            HStack {
-                VStack(alignment: .leading) {
-                    Text(job.name)
-                        .bold()
-                        .padding(.bottom, 5)
+        HStack {
+            VStack(alignment: .leading) {
+                Text(job.name)
+                    .bold()
+                    .padding(.bottom, 5)
                     
-                    HStack {
-                        Image(systemName: "calendar")
-                        Text("\(job.entries.count) days")
-                            .padding(.trailing)
+                HStack {
+                    Image(systemName: "calendar")
+                    Text("\(job.entries.count) days")
                         
-                        Image(systemName: "clock")
-                        Text("\(job.totalHours) hours")
-                    }
-                    .font(.caption)
-                    .foregroundColor(.gray)
+                    Image(systemName: "clock")
+                    Text("\(job.totalHours) hours")
                 }
+                .font(.caption)
+                .foregroundColor(.secondary)
+            }
                 
-                Spacer()
+            Spacer()
                 
-                Text("$\(job.totalEarns)")
-                    .foregroundColor(.green)
-            }        
+            Text(job.totalEarns.money())
+                .foregroundColor(.green)
+        }
     }
 }
 

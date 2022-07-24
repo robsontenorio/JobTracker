@@ -10,18 +10,20 @@ import RealmSwift
 
 class Entry: Object, ObjectKeyIdentifiable {
     @Persisted(primaryKey: true) var _id: ObjectId
-    @Persisted var startDate: Date?
-    @Persisted var endDate: Date?
-    @Persisted var hours: Int?
-    @Persisted var earns: Int?
+    @Persisted var date: Date
+    @Persisted var hours: Int
+    @Persisted var earns: Float
 
     @Persisted(originProperty: "entries") var job: LinkingObjects<Job>
 
-    convenience init(_ hours: Int, startDate: Date? = nil, endDate: Date? = nil, earns: Int? = nil) {
+    convenience init(_ hours: Int, date: Date = Date(), earns: Float = 0.0) {
         self.init()
         self.hours = hours
-        self.startDate = startDate
-        self.endDate = endDate
+        self.date = date
         self.earns = earns
+    }
+    
+    var month: Int{
+        self.date.monthNumber
     }
 }
