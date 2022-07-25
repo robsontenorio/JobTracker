@@ -15,12 +15,8 @@ import Foundation
 // }()
 
 public extension Float {
-    func money() -> String {
-        return String(format: "\(Locale.current.currencySymbol ?? "$") %.2f", self)
-    }
-
-    func moneyWithoutSymbol() -> String {
-        return String(format: "%.2f", self)
+    var moneyLocalized: String {
+        NumberFormatter.localizedString(from: NSNumber(value: self), number: .currency)
     }
 }
 
@@ -29,15 +25,15 @@ extension Date {
         self.formatted(Date.FormatStyle().month(.abbreviated).day(.twoDigits))
     }
     
-    var year: Int{
+    var year: Int {
         Int(self.formatted(.dateTime.year(.twoDigits)))!
     }
     
-    var monthNumber: Int{
+    var monthNumber: Int {
         Int(self.formatted(.dateTime.month(.twoDigits)))!
     }
     
-    var monthName: String{
+    var monthName: String {
         DateFormatter().monthSymbols[self.monthNumber - 1]
     }
 }

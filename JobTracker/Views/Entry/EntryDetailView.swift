@@ -25,7 +25,7 @@ struct EntryDetailView: View {
     var body: some View {
         List {
             Section(footer: Text("Total = (worked hours) * (price per hour)")) {
-                Text(earns.money())
+                Text(earns.moneyLocalized)
                     .font(.title)
                     .bold()
                     .foregroundColor(.green)
@@ -100,8 +100,6 @@ struct EntryDetailView: View {
         try? job.thaw()?.realm?.write {
             $job.entries.append(Entry(hours, date: date, earns: earns))
         }
-        
-        dismiss()
     }
 }
 

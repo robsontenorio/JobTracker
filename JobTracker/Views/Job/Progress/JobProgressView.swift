@@ -13,7 +13,7 @@ struct JobProgressView: View {
 
     var body: some View {
         VStack {
-            Text(job.totalEarns.money())
+            Text(job.totalEarns.moneyLocalized)
                 .font(.title2)
                 .bold()
                 .padding()

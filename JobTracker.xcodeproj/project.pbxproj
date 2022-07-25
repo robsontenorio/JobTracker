@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AF022548288DDD8800A9F64B /* Demo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF022547288DDD8800A9F64B /* Demo.swift */; };
 		AF2FE30028884D4100EFE6E2 /* EntryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2FE2FF28884D4100EFE6E2 /* EntryCardView.swift */; };
 		AF43666B287B111800242B7F /* JobProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43666A287B111800242B7F /* JobProgressView.swift */; };
 		AF59F3CC288D768A0078EBF5 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF59F3CB288D768A0078EBF5 /* Extensions.swift */; };
@@ -34,7 +33,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		AF022547288DDD8800A9F64B /* Demo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Demo.swift; sourceTree = "<group>"; };
 		AF2FE2FF28884D4100EFE6E2 /* EntryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryCardView.swift; sourceTree = "<group>"; };
 		AF43666A287B111800242B7F /* JobProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobProgressView.swift; sourceTree = "<group>"; };
 		AF59F3CB288D768A0078EBF5 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -153,7 +151,6 @@
 				AFEF5E362879D61A007F152F /* JobTrackerApp.swift */,
 				AF9CB27D28804D7700B26A97 /* HomeView.swift */,
 				AFDE9363288AC47700CB73E5 /* CardBox.swift */,
-				AF022547288DDD8800A9F64B /* Demo.swift */,
 				AFEF5E3A2879D61B007F152F /* Assets.xcassets */,
 				AFEF5E3C2879D61B007F152F /* Preview Content */,
 			);
@@ -271,7 +268,6 @@
 				AFEF5E542879DF08007F152F /* Entry.swift in Sources */,
 				AFC710F6287A4BA9000B67E9 /* EntryListView.swift in Sources */,
 				AFEF5E522879DF00007F152F /* Job.swift in Sources */,
-				AF022548288DDD8800A9F64B /* Demo.swift in Sources */,
 				AFEF5E502879D789007F152F /* JobDetailView.swift in Sources */,
 				AF5FBE74288C2E0F006F9716 /* Settings.swift in Sources */,
 				AFEF5E372879D61A007F152F /* JobTrackerApp.swift in Sources */,

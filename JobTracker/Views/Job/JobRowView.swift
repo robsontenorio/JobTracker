@@ -31,7 +31,7 @@ struct JobRowView: View {
                 
             Spacer()
                 
-            Text(job.totalEarns.money())
+            Text(job.totalEarns.moneyLocalized)
                 .foregroundColor(.green)
         }
     }

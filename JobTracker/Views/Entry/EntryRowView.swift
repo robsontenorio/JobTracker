@@ -27,7 +27,7 @@ struct EntryRowView: View {
             
             Spacer()
                         
-            Text(entry.earns.money())
+            Text(entry.earns.moneyLocalized)
                 .foregroundColor(.green)
         }
     }

@@ -26,18 +26,19 @@ struct JobDetailView: View {
         
     var body: some View {
         Form {
-            VStack {
+            HStack {
                 Image(systemName: "globe")
                     .resizable()
-                    .frame(width: 56.0, height: 56.0)
-                    .padding()
-                    .foregroundColor(.cyan)
+                    .scaledToFit()
+                    .frame(height: 30.0)
+                    .padding(10)
+                    .foregroundColor(.accentColor)
                 
                 TextField("Job Name", text: $name)
-                    .font(.title)
-                    .multilineTextAlignment(.center)
+                    .font(.title2)
                     .autocorrectionDisabled()
                     .bold()
+                    
             }
             
             Section("Settings") {
@@ -54,6 +55,7 @@ struct JobDetailView: View {
                 }
             }
         }
+        .navigationTitle("Job Settings")
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button("OK") {

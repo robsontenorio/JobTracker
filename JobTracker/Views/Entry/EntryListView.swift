@@ -31,16 +31,17 @@ struct EntryListView: View {
                 }
             }
 
-            ForEach(job.entriesGroupedByMonth, id: \.self) { entries in
-                Section(entries[0].date.monthName) {
-                    ForEach(entries) { entry in
-                        NavigationLink(destination: EntryDetailView(job: job, entry: entry)) {
-                            EntryRowView(entry: entry)
-                        }
-                    }
-                    .onDelete(perform: $job.entries.remove)
+//            ForEach(job.entriesGroupedByMonth, id: \.self) { entries in
+//                Section(entries[0].date.monthName) {
+            //            ForEach(entries) { entry in
+            ForEach(job.entries.sorted(by: \.date)) { entry in
+                NavigationLink(destination: EntryDetailView(job: job, entry: entry)) {
+                    EntryRowView(entry: entry)
                 }
             }
+            .onDelete(perform: $job.entries.remove)
+//                }
+//            }
         }
         .navigationTitle(job.name)
         .toolbar {
