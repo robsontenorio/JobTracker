@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AF2266D3288EE59D00E54373 /* CurrencyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2266D2288EE59D00E54373 /* CurrencyTextField.swift */; };
 		AF2FE30028884D4100EFE6E2 /* EntryCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF2FE2FF28884D4100EFE6E2 /* EntryCardView.swift */; };
 		AF43666B287B111800242B7F /* JobProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF43666A287B111800242B7F /* JobProgressView.swift */; };
 		AF59F3CC288D768A0078EBF5 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF59F3CB288D768A0078EBF5 /* Extensions.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		AF2266D2288EE59D00E54373 /* CurrencyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrencyTextField.swift; sourceTree = "<group>"; };
 		AF2FE2FF28884D4100EFE6E2 /* EntryCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryCardView.swift; sourceTree = "<group>"; };
 		AF43666A287B111800242B7F /* JobProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobProgressView.swift; sourceTree = "<group>"; };
 		AF59F3CB288D768A0078EBF5 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
@@ -70,6 +72,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		AF2266D1288EE58C00E54373 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				AF59F3CB288D768A0078EBF5 /* Extensions.swift */,
+				AF2266D2288EE59D00E54373 /* CurrencyTextField.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
 		AF43666C287B133700242B7F /* Progress */ = {
 			isa = PBXGroup;
 			children = (
@@ -91,7 +102,6 @@
 			isa = PBXGroup;
 			children = (
 				AF789082287B0395002D3A1F /* RealmHelper.swift */,
-				AF59F3CB288D768A0078EBF5 /* Extensions.swift */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
@@ -145,6 +155,7 @@
 		AFEF5E352879D61A007F152F /* JobTracker */ = {
 			isa = PBXGroup;
 			children = (
+				AF2266D1288EE58C00E54373 /* Support */,
 				AF789081287B038B002D3A1F /* Realm */,
 				AFEF5E4A2879D749007F152F /* Models */,
 				AFEF5E492879D743007F152F /* Views */,
@@ -281,6 +292,7 @@
 				AF59F3CE288D85E80078EBF5 /* EntryDetailView.swift in Sources */,
 				AFDE9364288AC47700CB73E5 /* CardBox.swift in Sources */,
 				AFEF5E4C2879D761007F152F /* JobsListView.swift in Sources */,
+				AF2266D3288EE59D00E54373 /* CurrencyTextField.swift in Sources */,
 				AF789083287B0395002D3A1F /* RealmHelper.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

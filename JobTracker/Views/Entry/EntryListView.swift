@@ -17,43 +17,42 @@ struct EntryListView: View {
 
     var body: some View {
         List {
-            Section("") {
+            Section {
                 JobProgressView(job: job)
                     .listRowInsets(EdgeInsets())
             }
 
-            Button(action: { addingEntry = true }) {
-                Label("Add entry", systemImage: "plus")
-            }
-            .sheet(isPresented: $addingEntry) {
-                NavigationView {
-                    EntryDetailView(job: job, entry: Entry())
+            Section {
+                Button(action: { addingEntry = true }) {
+                    Label("Add entry", systemImage: "plus")
+                }
+                .sheet(isPresented: $addingEntry) {
+                    NavigationView {
+                        EntryDetailView(job: job, entry: Entry())
+                    }
                 }
             }
 
 //            ForEach(job.entriesGroupedByMonth, id: \.self) { entries in
 //                Section(entries[0].date.monthName) {
-            //            ForEach(entries) { entry in
+//            ForEach(entries) { entry in
+
             ForEach(job.entries.sorted(by: \.date)) { entry in
                 NavigationLink(destination: EntryDetailView(job: job, entry: entry)) {
                     EntryRowView(entry: entry)
                 }
             }
             .onDelete(perform: $job.entries.remove)
-//                }
-//            }
         }
         .navigationTitle(job.name)
         .toolbar {
             ToolbarItem {
-                HStack(spacing: 20) {
-                    Button(action: { editingJob = true }) {
-                        Image(systemName: "gearshape")
-                    }
-                    .sheet(isPresented: $editingJob) {
-                        NavigationView {
-                            JobDetailView(user: user, job: job)
-                        }
+                Button(action: { editingJob = true }) {
+                    Image(systemName: "gearshape")
+                }
+                .sheet(isPresented: $editingJob) {
+                    NavigationView {
+                        JobDetailView(user: user, job: job)
                     }
                 }
             }

@@ -11,12 +11,12 @@ import RealmSwift
 final class Job: Object, ObjectKeyIdentifiable {
     @Persisted(primaryKey: true) var _id: ObjectId
     @Persisted var name: String
-    @Persisted var pricePerHour: Float
+    @Persisted var pricePerHour: Double
 
     @Persisted var entries = RealmSwift.List<Entry>()
     @Persisted(originProperty: "jobs") var job: LinkingObjects<UserAccount>
 
-    convenience init(_ name: String, pricePerHour: Float = 0.0) {
+    convenience init(_ name: String, pricePerHour: Double = 0.0) {
         self.init()
         self.name = name
         self.pricePerHour = pricePerHour
@@ -26,7 +26,7 @@ final class Job: Object, ObjectKeyIdentifiable {
         self.entries.sum(ofProperty: "hours") ?? 0
     }
 
-    var totalEarns: Float {
+    var totalEarns: Double {
         self.entries.sum(ofProperty: "earns") ?? 0
     }
 

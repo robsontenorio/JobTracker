@@ -18,8 +18,8 @@ struct EntryDetailView: View {
     @State private var date = Date()
     @State private var showDatePicker = false
     
-    private var earns: Float {
-        Float(hours) * job.pricePerHour
+    private var earns: Double {
+        Double(hours) * job.pricePerHour
     }
     
     var body: some View {
@@ -54,6 +54,7 @@ struct EntryDetailView: View {
                 } label: {
                     Label("Worked hours", systemImage: "clock")
                 }
+
             }
         }
         .navigationTitle("Entry")

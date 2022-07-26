@@ -15,15 +15,15 @@ struct JobDetailView: View {
     @ObservedRealmObject var job: Job
     
     @State private var name: String = ""
-    @State private var pricePerHour: Float = 0.0
+    @State private var pricePerHour: Double? = 0.0
     
     let currencyEditingFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
         formatter.numberStyle = .decimal
         return formatter
     }()
+
     
-        
     var body: some View {
         Form {
             HStack {
@@ -31,14 +31,13 @@ struct JobDetailView: View {
                     .resizable()
                     .scaledToFit()
                     .frame(height: 30.0)
-                    .padding(10)
+                    .padding(5)
                     .foregroundColor(.accentColor)
                 
                 TextField("Job Name", text: $name)
                     .font(.title2)
                     .autocorrectionDisabled()
                     .bold()
-                    
             }
             
             Section("Settings") {
@@ -48,11 +47,18 @@ struct JobDetailView: View {
 //                    }
 //                }
 //
+//                LabeledContent("Price/Hour") {
+//                    TextField("--", value: $pricePerHour, formatter: currencyEditingFormatter)
+//                        .multilineTextAlignment(.trailing)
+//                        .keyboardType(.decimalPad)
+//                }
+                
                 LabeledContent("Price/Hour") {
-                    TextField("--", value: $pricePerHour, formatter: currencyEditingFormatter)
+                    CurrencyTextField("--", value: $pricePerHour, alwaysShowFractions: true)
                         .multilineTextAlignment(.trailing)
-                        .keyboardType(.decimalPad)
                 }
+                
+                
             }
         }
         .navigationTitle("Job Settings")
@@ -81,13 +87,13 @@ struct JobDetailView: View {
         
         try! edit.realm!.write {
             edit.name = name
-            edit.pricePerHour = pricePerHour
+            edit.pricePerHour = pricePerHour!
         }
     }
     
     private func create() {
         try? user.thaw()?.realm?.write {
-            $user.jobs.append(Job(name, pricePerHour: pricePerHour))
+            $user.jobs.append(Job(name, pricePerHour: pricePerHour!))
         }
     }
 }

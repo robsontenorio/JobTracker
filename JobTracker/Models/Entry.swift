@@ -12,11 +12,11 @@ class Entry: Object, ObjectKeyIdentifiable {
     @Persisted(primaryKey: true) var _id: ObjectId
     @Persisted var date: Date
     @Persisted var hours: Int
-    @Persisted var earns: Float
+    @Persisted var earns: Double
 
     @Persisted(originProperty: "entries") var job: LinkingObjects<Job>
 
-    convenience init(_ hours: Int, date: Date = Date(), earns: Float = 0.0) {
+    convenience init(_ hours: Int, date: Date = Date(), earns: Double = 0.0) {
         self.init()
         self.hours = hours
         self.date = date
