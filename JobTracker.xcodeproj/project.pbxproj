@@ -16,7 +16,6 @@
 		AF789083287B0395002D3A1F /* RealmHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF789082287B0395002D3A1F /* RealmHelper.swift */; };
 		AF9CB27C28804D4900B26A97 /* ReportView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9CB27B28804D4900B26A97 /* ReportView.swift */; };
 		AF9CB27E28804D7700B26A97 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF9CB27D28804D7700B26A97 /* HomeView.swift */; };
-		AFA2D0D028858F58001184D1 /* JobFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFA2D0CF28858F58001184D1 /* JobFormView.swift */; };
 		AFC710F6287A4BA9000B67E9 /* EntryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC710F5287A4BA9000B67E9 /* EntryListView.swift */; };
 		AFDE9364288AC47700CB73E5 /* CardBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFDE9363288AC47700CB73E5 /* CardBox.swift */; };
 		AFEBE806287B707700887A80 /* EntryRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFEBE805287B707700887A80 /* EntryRowView.swift */; };
@@ -43,7 +42,6 @@
 		AF789082287B0395002D3A1F /* RealmHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmHelper.swift; sourceTree = "<group>"; };
 		AF9CB27B28804D4900B26A97 /* ReportView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportView.swift; sourceTree = "<group>"; };
 		AF9CB27D28804D7700B26A97 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
-		AFA2D0CF28858F58001184D1 /* JobFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JobFormView.swift; sourceTree = "<group>"; };
 		AFC710F5287A4BA9000B67E9 /* EntryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryListView.swift; sourceTree = "<group>"; };
 		AFDE9363288AC47700CB73E5 /* CardBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CardBox.swift; path = JobTracker/CardBox.swift; sourceTree = SOURCE_ROOT; };
 		AFEBE805287B707700887A80 /* EntryRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EntryRowView.swift; sourceTree = "<group>"; };
@@ -85,7 +83,6 @@
 			isa = PBXGroup;
 			children = (
 				AF43666A287B111800242B7F /* JobProgressView.swift */,
-				AFA2D0CF28858F58001184D1 /* JobFormView.swift */,
 			);
 			path = Progress;
 			sourceTree = "<group>";
@@ -285,7 +282,6 @@
 				AF43666B287B111800242B7F /* JobProgressView.swift in Sources */,
 				AF9CB27C28804D4900B26A97 /* ReportView.swift in Sources */,
 				AFEBE806287B707700887A80 /* EntryRowView.swift in Sources */,
-				AFA2D0D028858F58001184D1 /* JobFormView.swift in Sources */,
 				AF59F3CC288D768A0078EBF5 /* Extensions.swift in Sources */,
 				AFEF5E4E2879D772007F152F /* JobRowView.swift in Sources */,
 				AF9CB27E28804D7700B26A97 /* HomeView.swift in Sources */,
