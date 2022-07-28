@@ -12,14 +12,16 @@ final class Job: Object, ObjectKeyIdentifiable {
     @Persisted(primaryKey: true) var _id: ObjectId
     @Persisted var name: String
     @Persisted var pricePerHour: Double
+    @Persisted var currencySymbol: String
 
     @Persisted var entries = RealmSwift.List<Entry>()
     @Persisted(originProperty: "jobs") var job: LinkingObjects<UserAccount>
 
-    convenience init(_ name: String, pricePerHour: Double = 0.0) {
+    convenience init(_ name: String, pricePerHour: Double = 0.0, currencySymbol: String? = Locale.current.currencySymbol ?? "$") {
         self.init()
         self.name = name
         self.pricePerHour = pricePerHour
+        self.currencySymbol = currencySymbol!
     }
 
     var totalHours: Int {

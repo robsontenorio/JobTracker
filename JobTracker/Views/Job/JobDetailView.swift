@@ -16,6 +16,7 @@ struct JobDetailView: View {
     
     @State private var name: String = ""
     @State private var pricePerHour: Double? = 0.0
+    @State private var currencySymbol: String = Locale.current.currencySymbol ?? "$"
     
     let currencyEditingFormatter: NumberFormatter = {
         let formatter = NumberFormatter()
@@ -23,42 +24,32 @@ struct JobDetailView: View {
         return formatter
     }()
 
-    
     var body: some View {
         Form {
             HStack {
                 Image(systemName: "globe")
                     .resizable()
                     .scaledToFit()
-                    .frame(height: 30.0)
-                    .padding(5)
+                    .frame(height: 22)
+                    .padding(8)
                     .foregroundColor(.accentColor)
                 
                 TextField("Job Name", text: $name)
-                    .font(.title2)
+                    .font(.title3)
                     .autocorrectionDisabled()
                     .bold()
             }
             
             Section("Settings") {
-//                Picker(selection: $currencyIndex, label: Text("Currency")) {
-//                    ForEach(0 ..< currencies.count) {
-//                        Text(self.currencies[$0])
-//                    }
-//                }
-//
-//                LabeledContent("Price/Hour") {
-//                    TextField("--", value: $pricePerHour, formatter: currencyEditingFormatter)
-//                        .multilineTextAlignment(.trailing)
-//                        .keyboardType(.decimalPad)
-//                }
-                
                 LabeledContent("Price/Hour") {
-                    CurrencyTextField("--", value: $pricePerHour, alwaysShowFractions: true)
+                    CurrencyTextField("--", value: $pricePerHour, alwaysShowFractions: true, currencySymbol: "")
                         .multilineTextAlignment(.trailing)
                 }
                 
-                
+                LabeledContent("Currency Symbol") {
+                    TextField("", text: $currencySymbol)
+                        .multilineTextAlignment(.trailing)
+                }
             }
         }
         .navigationTitle("Job Settings")

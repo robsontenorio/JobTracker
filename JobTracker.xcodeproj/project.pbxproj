@@ -79,14 +79,6 @@
 			path = Support;
 			sourceTree = "<group>";
 		};
-		AF43666C287B133700242B7F /* Progress */ = {
-			isa = PBXGroup;
-			children = (
-				AF43666A287B111800242B7F /* JobProgressView.swift */,
-			);
-			path = Progress;
-			sourceTree = "<group>";
-		};
 		AF5FBE72288C2E00006F9716 /* Settings */ = {
 			isa = PBXGroup;
 			children = (
@@ -125,10 +117,10 @@
 		AFC710F4287A4B98000B67E9 /* Job */ = {
 			isa = PBXGroup;
 			children = (
-				AF43666C287B133700242B7F /* Progress */,
 				AFEF5E4B2879D761007F152F /* JobsListView.swift */,
 				AFEF5E4D2879D772007F152F /* JobRowView.swift */,
 				AFEF5E4F2879D789007F152F /* JobDetailView.swift */,
+				AF43666A287B111800242B7F /* JobProgressView.swift */,
 			);
 			path = Job;
 			sourceTree = "<group>";
@@ -421,6 +413,7 @@
 				DEVELOPMENT_TEAM = R2TD9G86AV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Job Tracker";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -454,6 +447,7 @@
 				DEVELOPMENT_TEAM = R2TD9G86AV;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = "Job Tracker";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;

@@ -17,10 +17,8 @@ struct EntryDetailView: View {
     @State private var hours: Int = 0
     @State private var date = Date()
     @State private var showDatePicker = false
+    @State private var earns: Double = 0.0
     
-    private var earns: Double {
-        Double(hours) * job.pricePerHour
-    }
     
     var body: some View {
         List {
@@ -50,6 +48,7 @@ struct EntryDetailView: View {
                             Text("\($0)")
                         }
                     }
+                    .onChange(of: hours, perform: {_ in calculateEarns()})
                     
                 } label: {
                     Label("Worked hours", systemImage: "clock")
@@ -69,6 +68,7 @@ struct EntryDetailView: View {
         .onAppear {
             hours = entry.hours
             date = entry.date
+            earns = entry.earns
         }
         .sheet(isPresented: $showDatePicker) {
             DatePicker("", selection: $date, displayedComponents: .date)
@@ -79,6 +79,10 @@ struct EntryDetailView: View {
                 }
                 .padding()
         }
+    }
+    
+    private func calculateEarns() -> Void{
+        earns = Double(hours) * job.pricePerHour
     }
     
     private func save() {
